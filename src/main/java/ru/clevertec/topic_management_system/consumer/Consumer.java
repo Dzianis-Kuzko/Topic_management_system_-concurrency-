@@ -12,7 +12,7 @@ public class Consumer implements Runnable {
     private final TopicBroker topicBroker;
     private final String topicName;
     private final List<String> messages;
-    private final CountDownLatch latch;
+    private CountDownLatch latch;
     private int nextIndex;
 
     public Consumer(TopicBroker topicBroker, String topicName) {
@@ -20,7 +20,6 @@ public class Consumer implements Runnable {
         this.topicName = topicName;
         this.nextIndex = 0;
         this.messages = new ArrayList<>();
-        this.latch = null;
     }
 
     public Consumer(TopicBroker topicBroker, String topicName, CountDownLatch latch, List<String> messages) {
